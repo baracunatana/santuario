@@ -42,7 +42,7 @@
           ./modulos/comun.nix
           ./modulos/hyprland.nix
           ./modulos/fuentes.nix
-          ./modulos/gdm.nix
+          ./modulos/sddm.nix
           ./modulos/pipewire.nix
           ./maquinas/shion/configuration.nix
           ./maquinas/shion/hardware-configuration.nix

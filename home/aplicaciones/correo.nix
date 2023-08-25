@@ -11,6 +11,6 @@
     mu
   ];
 
-  home.file.".mbsyncrc".source = ./src/.mbsyncrc;
+  # home.file.".mbsyncrc".source = ./src/.mbsyncrc;
 }
 

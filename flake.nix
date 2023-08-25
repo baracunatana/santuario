@@ -18,14 +18,39 @@
         system = "x86_64-linux";
 
         modules = [
-          ./configuration.nix
+          ./modulos/comun.nix
           ./modulos/hyprland.nix
+          ./modulos/fuentes.nix
+          ./modulos/gdm.nix
+          ./modulos/pipewire.nix
+          ./maquinas/shura/configuration.nix
+          ./maquinas/shura/hardware-configuration.nix
+
+	        home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.juan = import ./home.nix;
+          }
+        ];
+      };
+
+      "shion" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          ./modulos/comun.nix
+          ./modulos/hyprland.nix
+          ./modulos/fuentes.nix
+          ./modulos/gdm.nix
+          ./modulos/pipewire.nix
+          ./maquinas/shion/configuration.nix
+          ./maquinas/shion/hardware-configuration.nix
           
 	        home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            
             home-manager.users.juan = import ./home.nix;
           }
         ];

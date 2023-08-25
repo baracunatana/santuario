@@ -5,17 +5,6 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "shura"; # Define your hostname.
- 
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -37,21 +26,6 @@
     LC_TIME = "es_CO.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "latam";
-    xkbVariant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "la-latin1";
 
@@ -60,23 +34,6 @@
 
   # Habilitar bluetootudo 
   hardware.bluetooth.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = false;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -107,17 +64,14 @@
 
   virtualisation.waydroid.enable=true;
 
+  programs.git.config = {
+    user.name = "Juan E. Gómez-Morantes";
+    email.email = "juanerasmoe@gmail.com"; 
+  };
+
   programs.gnupg.agent = {
      enable = true;
   };
-
-  fonts.fonts = with pkgs; [ 
-    nerdfonts
-    inconsolata-lgc
-    eb-garamond
-    vistafonts
-    emacs-all-the-icons-fonts
-  ];
 
   # Bloquear sitios web indeseados
   networking.extraHosts = ''
@@ -126,7 +80,6 @@
     127.0.0.1 www.eltiempo.com
     127.0.0.1 www.elespectador.com
     127.0.0.1 www.semana.com
-    127.0.0.1 www.instagram.com
     127.0.0.1 www.netflix.com
     '';
 

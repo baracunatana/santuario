@@ -21,7 +21,6 @@
     zip
     zoom-us
     zotero
-    xdotool
   ];
     
   programs = {

@@ -5,11 +5,12 @@
 
 {
   home.packages = with pkgs; [
-    archi
+    archi                       # Modelador de archimate
     blueman                     # Gestor de conexiones bluetooth
     bottom                      # Gestor de procesos
     jabref
     keepassxc
+    neofetch
     pavucontrol                 # Para control de volumen
     pdftk
     ripgrep

@@ -28,8 +28,8 @@
           "<Ctrl+h>" = "tab-prev";
           "<Ctrl+l>" = "tab-next";
 	        # Gestión de pestañas
-          "<Space>bn" = "ab-give";
-          "<Space>be" = "ab-close";
+          "<Space>bn" = "tab-give";
+          "<Space>be" = "tab-close";
           # Apertura o ejecución externa
           "<Space>ov" = "int links spawn mpv {hint-url}";
           "<Space>of" = "pawn firefox {url}";

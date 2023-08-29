@@ -11,8 +11,8 @@
   home-manager.extraSpecialArgs = {
     vars = {
       hypr-monitores-config = ''
+        monitor=eDP-1,1366x768,0x0,1
         monitor=HDMI-A-1,1920x1080,1366x0,1
-        monitor=eDP-1,preferred,0x0,1
       '';
     };
   };

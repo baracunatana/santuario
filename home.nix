@@ -15,6 +15,12 @@
     ./home/desktop
   ];
 
+  # Enlazar carpeta de fondos de escritorio
+  home.file.".config/wallpapers" = {
+    source = ./wallpapers;
+    recursive = true;
+  };
+
   # Packages that should be installed to the user profile.
   # home.packages = with pkgs; [
   #   gparted

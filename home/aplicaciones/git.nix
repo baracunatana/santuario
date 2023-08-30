@@ -12,8 +12,10 @@
       # Para commits de archivos grandes. Ver https://stackoverflow.com/questions/2702731/git-fails-when-pushing-commit-to-github
       extraConfig = {
         http = {
-          postBuffer  = "1048576000";
+          postBuffer  = "500M";
+          maxRequestBuffer = "100M";
         };
+        core.compression = "0";
       };
     };
   };

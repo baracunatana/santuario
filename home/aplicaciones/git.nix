@@ -12,7 +12,7 @@
       # Para commits de archivos grandes. Ver https://stackoverflow.com/questions/2702731/git-fails-when-pushing-commit-to-github
       extraConfig = {
         http = {
-          postBuffer  = "524288000";
+          postBuffer  = "1048576000";
         };
       };
     };

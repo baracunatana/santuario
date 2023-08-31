@@ -1,5 +1,6 @@
 #+title: Fuentes de imágenes
 
+Lista de fondos usados:
 + https://wallhaven.cc/w/lqyk72
 + https://wallhaven.cc/w/0pjj2j
 + https://wallhaven.cc/w/p9lkr9
@@ -10,3 +11,5 @@
 + https://wallhaven.cc/w/l3v7pr
 + https://wallhaven.cc/w/g72p6e
 + https://wallhaven.cc/w/6oglm6
+
+Los fondos de escritorio para shura se recortan con https://mmw.drath.ru/

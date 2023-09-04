@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, vars, ... }: {
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -14,7 +14,7 @@
         monitor=eDP-1,1366x768,0x0,1
         monitor=HDMI-A-1,1920x1080,1366x0,1
       '';
-      hyprpaper-conf = ''
+      hyprpaper-config = ''
         # Los fondos de escritorio para shura se recortan con https://mmw.drath.ru/
 
         # Precarga de imágenes

@@ -4,6 +4,7 @@
     hyprpaper
     waylock
     gtklock
+    alsa-utils                  # Para control de volumen
   ];
 
   programs = {

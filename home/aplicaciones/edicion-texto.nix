@@ -30,7 +30,10 @@
           scheme-medium
           # Paquetes adicionales
           adjustbox
+	  currvita
           amsfonts
+	  doi
+	  multibib
           biblatex
           biber
           capt-of

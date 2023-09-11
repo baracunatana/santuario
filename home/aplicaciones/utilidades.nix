@@ -16,6 +16,7 @@
     ripgrep
     ripgrep-all
     teams
+    xfce.thunar                      # Gestor de archivos
     tree
     unzip
     zip

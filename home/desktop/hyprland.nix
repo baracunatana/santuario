@@ -5,6 +5,7 @@
     waylock
     gtklock
     alsa-utils                  # Para control de volumen
+    brightnessctl               # Para control de brillo en pantalla
   ];
 
   programs = {

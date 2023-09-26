@@ -15,7 +15,12 @@
     aspellDicts.es
     xclip                       # Lo necesita org-download
   ];
- 
+
+  services.emacs = {
+    startWithUserSession = "graphical";
+    enable = true;
+  };
+  
   programs = {
     emacs = {
       enable = true;

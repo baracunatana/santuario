@@ -16,6 +16,9 @@
     xclip                       # Lo necesita org-download
   ];
 
+  ## Configuración de aspell
+  home.file.".aspell.conf".text = "data-dir /etc/profiles/per-user/juan/lib/aspell/";
+
   services.emacs = {
     startWithUserSession = "graphical";
     enable = true;

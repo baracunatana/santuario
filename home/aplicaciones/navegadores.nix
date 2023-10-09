@@ -60,10 +60,11 @@
         gs = "https://scholar.google.com/scholar?q={}"; 
         gr = "https://www.goodreads.com/search?query={}";
         lg = "http://libgen.is/search.php?req={}"; 
+        sc = "https://www.scimagojr.com/journalsearch.php?q={}";
         # NixOS
         np = "https://search.nixos.org/packages?query={}";
         no = "https://search.nixos.org/options?query={}";
-	nh = "https://mipmip.github.io/home-manager-option-search/?query={}";
+	      nh = "https://mipmip.github.io/home-manager-option-search/?query={}";
         # Redes sociales
         re = "https://www.reddit.com/r/{}"; 
         yt = "https://www.youtube.com/results?search_query={}";

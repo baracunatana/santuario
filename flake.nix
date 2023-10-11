@@ -2,8 +2,11 @@
   description = "Flake principal para equipo de trabajo completo";
 
   inputs = {
-    # Official NixOS package source, using nixos-unstable branch here
+    # Repositorio estable a 23.05 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+
+    # Repositorio inestable
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # home-manager, used for managing user configuration
     home-manager = {
@@ -12,10 +15,19 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-unstable, home-manager, ... }: {
     nixosConfigurations = {
       "shura" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
+	      # El parámetro `specialArgs` pasa la instancia de nixpkgs inestable a otros módulos.
+        # No es accesible desde home-manager, en donde toca hacer su propia configuración
+        specialArgs = {
+          pkgs-unstable = import nixpkgs-unstable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+        };
 
         modules = [
           ./modulos/comun.nix

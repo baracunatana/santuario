@@ -9,7 +9,7 @@
     onlyoffice-bin
     libreoffice-fresh
     pandoc
-    nodePackages.mermaid-cli
+    pkgs-unstable.mermaid-cli
     scantailor-advanced
     aspell
     aspellDicts.en

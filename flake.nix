@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 
     # Repositorio inestable
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # home-manager, used for managing user configuration
     home-manager = {
@@ -20,7 +20,7 @@
       "shura" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-	      # El parámetro `specialArgs` pasa la instancia de nixpkgs inestable a otros módulos.
+	# El parámetro `specialArgs` pasa la instancia de nixpkgs inestable a otros módulos.
         # No es accesible desde home-manager, en donde toca hacer su propia configuración
         specialArgs = {
           pkgs-unstable = import nixpkgs-unstable {
@@ -49,6 +49,15 @@
 
       "shion" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
+        # El parámetro `specialArgs` pasa la instancia de nixpkgs inestable a otros módulos.
+        # No es accesible desde home-manager, en donde toca hacer su propia configuración
+        specialArgs = {
+          pkgs-unstable = import nixpkgs-unstable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+        };
 
         modules = [
           ./modulos/comun.nix

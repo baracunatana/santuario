@@ -23,7 +23,7 @@
     zoom-us
     zotero
   ];
-    
+
   programs = {
   };
 }

@@ -96,7 +96,17 @@
     # Capacidad de instalación de repo instable
     inherit pkgs-unstable;
   };
+  
+  # Automount de usb
+  services.udev.extraRules = ''
+     ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"       
+  '';
 
+  # Paquetes inseguros
+  nixpkgs.config.permittedInsecurePackages = [
+                "teams-1.5.00.23861"
+              ];
+  
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

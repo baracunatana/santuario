@@ -60,7 +60,8 @@
         cr = "https://search.crossref.org/?from_ui=&q={}";
         gs = "https://scholar.google.com/scholar?q={}"; 
         gr = "https://www.goodreads.com/search?query={}";
-        lg = "http://libgen.is/search.php?req={}"; 
+        lgnf = "http://libgen.is/search.php?req={}"; 
+        lgf = "https://libgen.is/fiction/?q={}"; 
         sc = "https://www.scimagojr.com/journalsearch.php?q={}";
         # NixOS
         np = "https://search.nixos.org/packages?query={}";

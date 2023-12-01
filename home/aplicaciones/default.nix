@@ -7,10 +7,11 @@
     ./correo.nix
     ./edicion-texto.nix
     ./git.nix
-    ./navegadores.nix
+    ./juegos.nix
     ./media.nix
+    ./navegadores.nix
     ./syncthing.nix
-    ./utilidades.nix
     ./terminal.nix
+    ./utilidades.nix
   ];
 }

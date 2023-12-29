@@ -1,0 +1,20 @@
+#!/bin/sh
+
+LOCK_FILE="$HOME/.cache/eww-memory.lock"
+EWW_BIN="$HOME/.local/bin/eww/eww"
+
+run() {
+    eww update mem_rev=true 
+}
+
+close() {
+    eww update mem_rev=false   
+}
+
+if [[ ! -f "$LOCK_FILE" ]]; then
+    touch "$LOCK_FILE"
+    run && echo "ok good!"
+else
+    close
+    rm "$LOCK_FILE" && echo "closed"
+fi

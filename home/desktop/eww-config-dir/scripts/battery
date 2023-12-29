@@ -1,0 +1,94 @@
+#!/bin/sh
+
+battery() {
+    BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+    cat /sys/class/power_supply/${BAT}/capacity
+}
+
+battery_stat() {
+    BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+    cat /sys/class/power_supply/${BAT}/status
+}
+
+battery_icon() {
+    battery_capacity=$(battery)
+    battery_status=$(battery_stat)
+    battery_icon=""
+    if [[ $battery_capacity -ge 98 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂅"  
+	else
+	    battery_icon="󰁹"
+	fi 
+    elif [[ $battery_capacity -ge 90 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂋"  
+	else
+	    battery_icon="󰂂"
+	fi
+    elif [[ $battery_capacity -ge 80 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂊"  
+	else
+	    battery_icon="󰂁"
+	fi
+    elif [[ $battery_capacity -ge 70 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰢞"  
+	else
+	    battery_icon="󰂀"
+	fi
+    elif [[ $battery_capacity -ge 60 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂉"  
+	else
+	    battery_icon="󰁿"
+	fi
+    elif [[ $battery_capacity -ge 50 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰢝"  
+	else
+	    battery_icon="󰁾"
+	fi
+    elif [[ $battery_capacity -ge 40 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂈"  
+	else
+	    battery_icon="󰁽"
+	fi
+    elif [[ $battery_capacity -ge 30 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂇"  
+	else
+	    battery_icon="󰁼"
+	fi
+    elif [[ $battery_capacity -ge 20 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰂆"  
+	else
+	    battery_icon="󰁻"
+	fi
+    elif [[ $battery_capacity -ge 10 ]]; then
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰢜"  
+	else
+	    battery_icon="󰁺"
+	fi
+    else
+	if [ "$battery_status" == "Charging" ]; then
+            battery_icon="󰢜"  
+	else
+	    battery_icon="󰂎"
+	fi
+    fi
+    echo $battery_icon
+}
+
+
+if [[ "$1" == "--bat" ]]; then
+	battery
+elif [[ "$1" == "--bat-st" ]]; then
+	battery_stat
+elif [[ "$1" == "--bat-icon" ]]; then
+	battery_icon
+fi

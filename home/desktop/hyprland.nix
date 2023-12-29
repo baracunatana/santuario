@@ -6,12 +6,19 @@
     gtklock
     alsa-utils                  # Para control de volumen
     brightnessctl               # Para control de brillo en pantalla
+    jq                          # Para scripts de eww
+    socat                       # Para scripts de eww
   ];
 
   programs = {
     waybar.enable = true;
     wofi.enable = true;
     wlogout.enable = true;
+    eww = {
+      enable = true;
+      package = pkgs.eww-wayland;
+      configDir = ./eww-config-dir;
+    };
   };
 
   # Crear archivo de configuración de monitores según var.hypr-monitores.

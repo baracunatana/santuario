@@ -1,0 +1,33 @@
+#!/bin/sh
+
+icono() {
+    if [[ "$(activo)" == "off" ]]; then
+       echo "󰸈"
+    elif [[ "$(porcentaje)" -eq 0 ]]; then
+       echo "󰕿"
+    else
+	echo "󰕾"
+    fi
+}
+
+porcentaje() {
+    amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'
+}
+
+activo () {
+    # Retorna off si está muteado o on en caso contrario
+    INFO=$(amixer sget Master | grep 'Left:')
+    if [[ $INFO == *"[off]"* ]]; then
+	echo "off"
+    else
+	echo "on"
+    fi
+}
+
+if [[ "$1" == "--porcentaje" ]]; then
+    porcentaje
+elif [[ "$1" == "--icono" ]]; then
+    icono
+elif [[ "$1" == "--activo" ]]; then
+    activo 
+fi

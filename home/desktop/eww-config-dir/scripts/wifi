@@ -1,0 +1,35 @@
+#!/bin/sh
+
+status=$(nmcli g | grep -oE "disconnected")
+essid=$(nmcli c | grep wlp2s0 | awk '{print ($1)}')
+signal=$(nmcli dev wifi list | grep $essid | awk '{ print $8 }')
+
+if [ $status ] ; then
+    icon=""
+    text=""
+    col="#575268"
+
+else
+    if [[ "$signal" -gt 75 ]]; then
+       icon=""
+    elif [[ "$signal" -gt 50 ]]; then
+       icon="󰤥"
+    elif [[ "$signal" -gt 25 ]]; then
+       icon="󰤢"
+    elif [[ "$signal" -gt 0 ]]; then
+	icon="󰤟"
+    fi
+    text="${essid}"
+    col="#a1bdce"
+fi
+
+
+if [[ "$1" == "--COL" ]]; then
+    echo $col	
+elif [[ "$1" == "--ESSID" ]]; then
+	echo $text
+elif [[ "$1" == "--ICON" ]]; then
+	echo $icon
+elif [[ "$1" == "--SIGNAL" ]]; then
+	echo $signal
+fi

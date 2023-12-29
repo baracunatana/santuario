@@ -1,0 +1,19 @@
+#!/bin/sh
+
+LOCK_FILE="$HOME/.cache/eww-pop-$1.lock"
+
+run() {
+    touch "$LOCK_FILE"
+    eww open $1 
+}
+
+close() {
+    eww close $1 
+    rm "$LOCK_FILE" && echo "closed"
+}
+
+if [[ ! -f "$LOCK_FILE" ]]; then
+    run $1 
+else
+    close $1
+fi

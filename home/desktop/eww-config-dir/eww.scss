@@ -1,0 +1,137 @@
+///////////////////////
+// Estilos globales  //
+///////////////////////
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+  color:  #81A1C1;
+  font-family: JetBrainsMono Nerd Font;
+}
+
+scale highlight {
+  background-image: linear-gradient(to right, #8FBCBB 30%, #88C0D0 50%, #81A1C1 100% *50);
+  border-radius: 4px;
+}
+
+scale trough {
+  all: unset;
+  background-color: #2E3440;
+  border-radius: 9px;
+  min-height: 8px;
+  min-width: 70px;
+  margin: 0px 10px 0px 5px;
+}
+
+scale slider{
+  border-radius: 10px;
+  background-color: #D8DEE9;
+  margin: -7px -7px -7px -7px;
+}
+
+tooltip.background {
+    background-color: #0f0f17;
+    font-size: 12;
+    border-radius: 10px;
+    color: #bfc9db;
+}
+
+tooltip label {
+    margin: 6px;
+}
+
+//////////////////////////////////
+// Estilos para barra principal //
+//////////////////////////////////
+.bar {
+    background-color: rgba(#2E3440,0.5);
+    color:  #81A1C1;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.zona {
+  background-color: #4C566A;
+  border-radius: 4px;
+  margin: 0px 0px 0px 5px;
+}
+
+//////////////////////////////////
+// Estilos para widgets básicos //
+//////////////////////////////////
+.widget_basico {
+    font-size: 12;
+    margin: 0px 5px 0px 5px;
+}
+
+//=====================
+// Estilos para batería
+//=====================
+.module-bat {
+    @extend .widget_basico;
+    font-size: 13;
+}
+
+.module-bat-crit {
+    @extend .module-bat;
+    color: #BF616A;
+}
+
+.module-bat-detail {
+    font-size: 10;
+    color: #88C0D0;
+    margin: 0px 5px 0px 5px;
+}
+//========================
+// Estilos para workspaces 
+//========================
+
+.workspace-entry {
+    font-size: 12;
+    color:  #81A1C1;
+    margin: 0px 10px 0px 5px;
+}
+
+//==================
+// Estilos para wifi 
+//==================
+.module_essid {
+    font-size: 10;
+    color: #88C0D0;
+    margin: 0px 10px 0px 0px;
+}
+
+//=======================================
+// Estilos para hora, fecha, y calendario
+//=======================================
+
+.clock_time_sep, .clock_ampm_class, .clock_date_class {
+    font-size: 10;
+    color: #88C0D0;
+}
+
+.clock_date_class {
+    font-size: 10;
+    color: #88C0D0;
+    margin: 0px 0px 0px 5px;
+}
+
+.clock_hour_class, {
+    font-size: 12;
+    margin: 0px 0px 0px 5px;
+}
+
+.clock_minute_class {
+    font-size: 12;
+}
+
+.cal {
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: #2E3440;
+    .cal-in {
+	.cal {
+	    padding: 5px 5px 5px 5px;
+	    margin-left: 10px;
+	}
+    }
+}

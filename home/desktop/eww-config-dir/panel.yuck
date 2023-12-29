@@ -1,0 +1,33 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Definición de ventanas ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defwindow panel_0
+	   :monitor "0" 
+	   :geometry (geometry :x "1%" 
+			       :y "15px" 
+                               :anchor "top right"
+			       :width "190px" 
+			       :height "60px")
+	   (zona-apagado))
+
+(defwindow panel_1
+	   :monitor "0" 
+	   :geometry (geometry :x "1%" 
+			       :y "15px" 
+                               :anchor "top right"
+			       :width "190px" 
+			       :height "60px")
+	   (zona-apagado))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Definición de widgets ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;; Zona de apagado ;;;;
+(defwidget zona-apagado []
+	   (box :class "zona" :orientation "h"
+		(button :onclick "gtklock &" "")
+		(button :onclick "hyprctl dispatch exit &" "󰍃")
+		(button :onclick "gtklock & systemctl suspend" "󰏦")
+		(button :onclick "reboot" "")
+		(button :onclick "poweroff" "󰐥")))

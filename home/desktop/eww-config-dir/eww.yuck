@@ -222,7 +222,7 @@
 (defpoll clock_hour :interval "5s" "date +%I")
 (defpoll clock_minute :interval "5s" "date +%M")
 (defpoll clock_ampm :interval "5s" "date '+%P'")
-(defpoll clock_date :interval "5s" "date '+%b/%m'")
+(defpoll clock_date :interval "5s" "date '+%b/%d'")
 (defpoll calendar_day :interval "5s" "date '+%d'")
 (defpoll calendar_year :interval "5s" "date '+%Y'")
 

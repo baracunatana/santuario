@@ -50,6 +50,7 @@
           ebgaramond
           ec
           fontaxes
+	  preview
           sectsty
           titlesec
           wrapfig;

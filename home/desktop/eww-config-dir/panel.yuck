@@ -11,7 +11,7 @@
 	   (zona-apagado))
 
 (defwindow panel_1
-	   :monitor "0" 
+	   :monitor "1" 
 	   :geometry (geometry :x "1%" 
 			       :y "15px" 
                                :anchor "top right"

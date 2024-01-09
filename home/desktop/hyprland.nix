@@ -8,6 +8,7 @@
     brightnessctl               # Para control de brillo en pantalla
     jq                          # Para scripts de eww
     socat                       # Para scripts de eww
+    wirelesstools                       # Para scripts de eww
   ];
 
   programs = {

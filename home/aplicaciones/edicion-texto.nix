@@ -38,21 +38,24 @@
         inherit (tpkgs)
           scheme-medium
           # Paquetes adicionales
-          adjustbox
 	  currvita
-          amsfonts
 	  doi
 	  multibib
-          biblatex
+	  multirow
+	  preview
+          adjustbox
+          amsfonts
           biber
+          biblatex
           capt-of
           cm-super
           ebgaramond
           ec
           fontaxes
-	  preview
           sectsty
           titlesec
+	  preprint      #Para authblk
+	  pracjourn
           wrapfig;
       };
     };

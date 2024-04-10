@@ -1,14 +1,21 @@
-{ config, pkgs, vars, ... }:
+{ 
+  config,
+  pkgs,
+  pkgs-unstable,
+  vars,
+  ... }:
 {
   home.packages = with pkgs; [
     hyprpaper
     waylock
     gtklock
+    pkgs-unstable.grimblast
     alsa-utils                  # Para control de volumen
     brightnessctl               # Para control de brillo en pantalla
     jq                          # Para scripts de eww
     socat                       # Para scripts de eww
-    wirelesstools                       # Para scripts de eww
+    wirelesstools               # Para scripts de eww
+    wl-clipboard                # Se requiere para org-download
   ];
 
   programs = {

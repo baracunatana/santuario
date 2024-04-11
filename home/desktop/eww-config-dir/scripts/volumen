@@ -17,7 +17,7 @@ icono() {
 }
 
 porcentaje() {
-    amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'
+    amixer sget Master | grep -m 1 '\[on\]' | awk -F'[][]' '{ print $2 }' | tr -d '%'
 }
 
 bluetooth() {

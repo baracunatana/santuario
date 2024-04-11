@@ -1,17 +1,34 @@
 #!/bin/sh
 
 icono() {
-    if [[ "$(activo)" == "off" ]]; then
-       echo "󰸈"
-    elif [[ "$(porcentaje)" -eq 0 ]]; then
-       echo "󰕿"
+    if [[ "$(activo)" == "off" || "$(porcentaje)" -eq 0 ]]; then
+	if [[ "$(bluetooth)" == "1" ]]; then
+	    echo "󰂲"
+	else
+	    echo "󰸈"
+	fi
     else
-	echo "󰕾"
+	if [[ "$(bluetooth)" == "1" ]]; then
+	    echo "󰂰"
+	else
+	    echo "󰕾"
+	fi
     fi
 }
 
 porcentaje() {
     amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'
+}
+
+bluetooth() {
+    # retorna 0 si no hay conexión a bluetooth o 1 en caso contrario
+    sinks=$(pw-dump | grep bluez.*sink)
+
+    if [ -n "$sinks" ]; then
+        echo "1"
+    else
+        echo "0"
+    fi
 }
 
 activo () {
@@ -26,6 +43,8 @@ activo () {
 
 if [[ "$1" == "--porcentaje" ]]; then
     porcentaje
+elif [[ "$1" == "--bt" ]]; then
+    bluetooth
 elif [[ "$1" == "--icono" ]]; then
     icono
 elif [[ "$1" == "--activo" ]]; then

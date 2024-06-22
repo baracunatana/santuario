@@ -18,13 +18,16 @@
     wl-clipboard                # Se requiere para org-download
   ];
 
+  services = {
+    gnome-keyring.enable = true;
+  };
+
   programs = {
     waybar.enable = true;
     wofi.enable = true;
     wlogout.enable = true;
     eww = {
       enable = true;
-      package = pkgs.eww-wayland;
       configDir = ./eww-config-dir;
     };
   };

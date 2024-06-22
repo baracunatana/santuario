@@ -1,11 +1,13 @@
 {pkgs, ...}: {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
 
   # Configurar teclado en X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "latam";
-    xkbVariant = "";
+    variant = "";
   };
 }

@@ -20,14 +20,15 @@
         xterm.enable = false;
       };
 
-      displayManager = {
-        defaultSession = "hyprland";
-        # # lightdm.enable = false;
-        # gdm = {
-        #   enable = true;
-        #   wayland = true;
-        # };
-      };
+    };
+
+    displayManager = {
+      defaultSession = "hyprland";
+      # # lightdm.enable = false;
+      # gdm = {
+      #   enable = true;
+      #   wayland = true;
+      # };
     };
   };
 

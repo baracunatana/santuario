@@ -16,15 +16,21 @@
     pdftk
     ripgrep
     ripgrep-all
-    teams
-    xfce.thunar                      # Gestor de archivos
+    teams-for-linux
     tree
     unzip
     zip
     zoom-us
     zotero
+    pkgs-unstable.superfile
+    gnome.nautilus
+    fzf
+    ripdrag
   ];
 
   programs = {
+    yazi = {
+      enable = true;
+    };
   };
 }

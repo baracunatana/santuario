@@ -26,6 +26,7 @@
     gnome.nautilus
     fzf
     ripdrag
+    ueberzugpp                  # Para imagenes en yazi
   ];
 
   programs = {

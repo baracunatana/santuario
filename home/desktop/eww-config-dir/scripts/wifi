@@ -5,12 +5,12 @@ essid=$(iwgetid -r)
 signal=$(nmcli dev wifi list | grep "$essid" | awk -F'Mbit/s' '{print $2}' | awk '{print $1}')
 
 if [ $status ] ; then
-    icon=""
+    icon="󰌙"
     text=""
     col="#575268"
 else
     if [[ "$signal" > 75 ]]; then
-       icon=""
+       icon="󰤨"
     elif [[ "$signal" -gt 50 ]]; then
        icon="󰤥"
     elif [[ "$signal" -gt 25 ]]; then

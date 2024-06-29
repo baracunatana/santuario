@@ -1,6 +1,7 @@
 { 
   config,
   pkgs,
+  pkgs-legacy,
   ... }:
 
 {
@@ -8,7 +9,7 @@
     javaPackages.openjfx17
     davmail
     isync
-    mu
+    pkgs-legacy.mu
   ];
 
   # home.file.".mbsyncrc".source = ./src/.mbsyncrc;

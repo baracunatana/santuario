@@ -1,20 +1,23 @@
 { 
   config,
   pkgs,
+  pkgs-legacy,
   pkgs-unstable,
   ... }:
 
 {
-  home.packages = with pkgs; [
-    onlyoffice-bin
-    libreoffice-fresh
-    pandoc
+  home.packages = [
+    pkgs.onlyoffice-bin
+    pkgs.libreoffice-fresh
+    pkgs.pandoc
     pkgs-unstable.mermaid-cli
-    scantailor-advanced
-    aspell
-    aspellDicts.en
-    aspellDicts.es
-    xclip                       # Lo necesita org-download
+    pkgs.scantailor-advanced
+    pkgs.aspell
+    pkgs.aspellDicts.en
+    pkgs.aspellDicts.es
+    pkgs.xclip                       # Lo necesita org-download
+    pkgs.hugo
+    pkgs-legacy.mu
   ];
 
   ## Configuración de aspell
@@ -28,8 +31,13 @@
   programs = {
     emacs = {
       enable = true;
+      # package = with pkgs; (
+      #   (emacsPackagesFor emacs29-pgtk).emacsWithPackages (
+      #     epkgs: [ emacsPackages.mu4e ]
+      #   )
+      # );
       package = pkgs.emacs29-pgtk;
-      extraPackages = epkgs: [ pkgs.mu ];
+      # extraPackages = epkgs: [ pkgs-legacy.mu ];
     };
     
     texlive = {
@@ -38,11 +46,11 @@
         inherit (tpkgs)
           scheme-medium
           # Paquetes adicionales
-	  currvita
-	  doi
-	  multibib
-	  multirow
-	  preview
+	        currvita
+	        doi
+	        multibib
+	        multirow
+	        preview
           adjustbox
           amsfonts
           biber
@@ -55,8 +63,8 @@
           sectsty
           titlesec
           orcidlink
-	  preprint      #Para authblk
-	  pracjourn
+	        preprint      #Para authblk
+	        pracjourn
           wrapfig;
       };
     };

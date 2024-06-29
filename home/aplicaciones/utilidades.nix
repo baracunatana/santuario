@@ -25,13 +25,21 @@
     pkgs-unstable.superfile
     gnome.nautilus
     fzf
-    ripdrag
     ueberzugpp                  # Para imagenes en yazi
+    ripdrag                     # Para incluir drag-n-drop en yazi
   ];
 
   programs = {
+    # Explorador de archivos
     yazi = {
       enable = true;
+      keymap = {
+        manager.prepend_keymap = [
+          { on = ["m" "d"];
+            run = "shell 'ripdrag \"$@\" -x 2>/dev/null &' --confirm";
+          }
+        ];
+      };
     };
   };
 }

@@ -7,6 +7,7 @@
 {
   home.packages = with pkgs; [
     microsoft-edge
+    nyxt
   ];
 
   programs = {

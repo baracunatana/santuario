@@ -7,18 +7,32 @@
 	   (box :orientation "h" 
 		:space-evenly false  
 		:halign "end"
-		:class "left_modules"
 		(config)
 		(time_0)
-		(menu_panel_0)))
+		(box :orientation "h" 
+		     :space-evenly true  
+		     :halign "end"
+ 		     :class "zona"
+		     (systray :spacing 5
+		     	      :space-evenly false
+			      :class "tray"
+			      :icon-size 12))
+		     (menu_panel_0)))
 
 (defwidget right_1 []
 	   (box :orientation "h" 
 		:space-evenly false  
 		:halign "end"
-		:class "left_modules"
 		(config)
 		(time_1)
+		(box :orientation "h" 
+		     :space-evenly true  
+		     :halign "end"
+ 		     :class "zona"
+		     (systray :spacing 5
+		     	      :space-evenly false
+			      :class "tray"
+			      :icon-size 12))
 		(menu_panel_1)))
 
 (defwidget config []
@@ -84,6 +98,7 @@
 					   :min 0
 					   :onchange "amixer sset Master {}%" )))))
 
+
 ;;;;;;;;;;;;
 ;; Brillo ;;
 ;;;;;;;;;;;;
@@ -94,12 +109,11 @@
 	   (eventbox :onhover "~/.config/eww/scripts/reveal.sh bri_reveal --on &"
 		     :onhoverlost "~/.config/eww/scripts/reveal.sh bri_reveal &"
 		     (box :space-evenly "false" :orientation "h" :spacing "3" 
-			  (button :onclick "scripts/pop brillo" :class "widget_basico" "")
+			  (label :class "widget_basico" :text "")
 			  (revealer :transition "slideleft"
 				    :reveal bri_reveal
 				    :duration "350ms"
-				    (scale :class "bribar"
-					   :value bri_percent
+				    (scale :value bri_percent
 					   :orientation "h"
 					   :max 100
 					   :min 0
@@ -115,7 +129,7 @@
 (defwidget workspaces_0 []
 	   (eventbox :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} $	{current_workspace}" :class "workspaces-widget"
 		     (box :space-evenly false 
-			  :orientation "h"
+		 	  :orientation "h"
 			  (box :class "zona"
 			       :space-evenly false
 			       (label :text "${workspaces}${current_workspace_0}" :visible false)
@@ -148,12 +162,15 @@
 (defwidget bat []
 	   (eventbox :onhover "~/.config/eww/scripts/reveal.sh bat_rev --on &" 
 		     :onhoverlost "~/.config/eww/scripts/reveal.sh bat_rev &"
-		     (box :vexpand "false" :hexpand "false" :space-evenly "false"
+		     (box :vexpand "false" 
+		     	  :hexpand "false" 
+			  :space-evenly "false"
 			  (label :class {battery > 15 ? "module-bat" : "module-bat-crit"}
 				 :text battery_icon)
 			  (revealer :transition "slideright"
 				    :reveal bat_rev
 				    :duration "350ms"
+				    :style "margin: 0px;"
 				    (label :class "module-bat-detail"
 					   :text "${battery} %" 
 					   :orientation "h")))))
@@ -265,12 +282,13 @@
 	   (eventbox :onhover "~/.config/eww/scripts/reveal.sh wifi_rev --on &"  
 		     :onhoverlost "~/.config/eww/scripts/reveal.sh wifi_rev &"  
 		     (box :vexpand "false" :hexpand "false" :space-evenly "false"
+		     	  :style "margin-right: 5;"
 			  (button :class "widget_basico"
 				  :onclick "networkmanager_dmenu"
 				  :wrap "false"
 				  :limit-width 12 
 				  :style "color: ${COL_WLAN};" 
-				  :style "margin: 0px 10px 0px 5px;" WLAN_ICON)
+				  WLAN_ICON)
 			  (revealer :transition "slideright"
 				    :reveal wifi_rev
 				    :duration "350ms"

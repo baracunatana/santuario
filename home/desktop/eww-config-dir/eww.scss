@@ -2,9 +2,25 @@
 // Estilos globales  //
 ///////////////////////
 * {
-  all: unset; //Unsets everything so you can style everything from scratch
-  color:  #81A1C1;
-  font-family: JetBrainsMono Nerd Font;
+    color:  #81A1C1;
+    padding: 0px;
+    font-family: JetBrainsMono Nerd Font;
+}
+
+menu {
+    background-color: #2E3440;
+}
+
+slider {
+    all: unset;
+}
+
+button {
+    min-height: 0;
+}
+
+window {
+    background-color: transparent;
 }
 
 scale highlight {
@@ -54,12 +70,22 @@ tooltip label {
   margin: 0px 0px 0px 5px;
 }
 
+.tray {
+  margin: 0px 5px 0px 5px;
+}
+
 //////////////////////////////////
 // Estilos para widgets básicos //
 //////////////////////////////////
 .widget_basico {
     font-size: 12;
     margin: 0px 5px 0px 5px;
+    background-image: none;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    border-width: 0px;
+    text-shadow: none;
 }
 
 //=====================
@@ -78,7 +104,7 @@ tooltip label {
 .module-bat-detail {
     font-size: 10;
     color: #88C0D0;
-    margin: 0px 5px 0px 5px;
+    margin: 0px 0px 0px 0px;
 }
 //========================
 // Estilos para workspaces 
@@ -96,7 +122,7 @@ tooltip label {
 .module_essid {
     font-size: 10;
     color: #88C0D0;
-    margin: 0px 10px 0px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 //=======================================

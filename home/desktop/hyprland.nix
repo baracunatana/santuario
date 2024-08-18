@@ -8,6 +8,8 @@
   home.packages = with pkgs; [
     hyprpaper
     waylock
+    blueman                     # Gestor de conexiones bluetooth
+    networkmanagerapplet	# Gestor de red en tray
     gtklock
     pkgs-unstable.grimblast
     alsa-utils                  # Para control de volumen
@@ -20,11 +22,24 @@
 
   services = {
     gnome-keyring.enable = true;
+    network-manager-applet.enable = true;
+  };
+ 
+ 
+  # Para íconos de gtk
+  gtk.iconTheme = {
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
   };
 
   programs = {
     waybar.enable = true;
-    wofi.enable = true;
+    wofi = {
+      enable = true;
+      settings = {
+        term = "alacritty";
+      };
+    };
     wlogout.enable = true;
     eww = {
       enable = true;

@@ -1,0 +1,71 @@
+#+title: Instrucciones adicionales para configuración de correo
+#+author: Juan E. Gómez-Morantes, PhD
+
+Este archivos contiene instrucciones para configuración de mi ecosistema de correo que no se pueden configurar de forma tradicional con =nix= o =home-manager= (o no dentro de mi conocimiento actual).
+
+Los siguientes componentes son necesarios para mi ecosistema de correo:
+
++ =mbsync= (parte de =isyc=) - Configurado en [[file:correo.nix]]
++ =mu4e= - Configurado en =mimacs=
++ =mu= - Instalado en [[file:correo.nix]]. Requiere configuración adicional
++ =davmail= (para cuentas PUJ) - Instalado en [[file:correo.nix]]. Requiere configuración adicional
+  
+Dado que =mu= y =davmail= requieren configuración adicional, este archivo contiene las instrucciones para esta configuración.
+
+* =mu=
+Lo único que requiere =mu= es ejecutar el siguiente comando para inicializar la base de datos:
+
+#+begin_src bash
+  mu init --maildir=~/correo --my-address=je.gomezm@javeriana.edu.co --my-address=juanerasmoe@gmail.com --my-address=egpti@javeriana.edu.co --my-address=aes@javeriana.edu.co
+#+end_src
+
+Esto se debe hacer una única vez, ya que cada ves que se hace se limpia la base de datos actual.
+
+* =davmail= 
+=davmail= tiene un archivo de configuración simple. Sin embargo, este archivo guarda un token de autenticación que se debe sobreescribir cada vez que se hace una autenticación. Esto hace que no se puedan escribir este archivo con método comunes de =home-manager=. Existe una opción de =nix= para definir este archivo, pero como es únicamente para ejecución de =davmail= como servicio, y esta forma de ejecución no soporta el método de autenticación compatible con la configuración de mi trabajo. Siendo así, lo más simple es tener un bloque definido acá y hacer /tangle/ para que se genere el archivo necesarios. Es importante tener en cuenta que *este tangle se debe hacer desde usuario regular (no root) para evitar problemas de permisos*. Ojalá se encuentre una mejor opción para esto, pero por ahora es lo que hay. 
+
+#+begin_src config :tangle ~/.davmail.properties
+davmail.smtpPort=1025
+davmail.imapPort=1143
+davmail.ldapPort=1389
+davmail.caldavPort=1080
+davmail.oauth.clientId=d3590ed6-52b3-4102-aeff-aad2292ab01c
+davmail.url=https://outlook.office365.com/EWS/Exchange.asmx
+davmail.oauth.redirectUri=urn:ietf:wg:oauth:2.0:oob
+davmail.enableKerberos=false
+davmail.forceActiveSyncUpdate=false
+davmail.imapAutoExpunge=true
+davmail.useSystemProxies=false
+davmail.caldavEditNotifications=false
+davmail.ssl.nosecuresmtp=false
+davmail.caldavPastDelay=0
+log4j.logger.httpclient.wire=WARN
+davmail.server=false
+log4j.logger.org.apache.commons.httpclient=ALL
+davmail.popMarkReadOnRetr=false
+davmail.ssl.nosecureimap=false
+davmail.disableTrayActivitySwitch=false
+davmail.caldavAutoSchedule=true
+davmail.enableProxy=false
+davmail.mode=O365Interactive
+davmail.smtpSaveInSent=true
+davmail.ssl.nosecurepop=false
+log4j.rootLogger=WARN
+log4j.logger.davmail=DEBUG
+log4j.logger.org.apache.http.conn.ssl=WARN
+davmail.sentKeepDelay=0
+davmail.ssl.nosecureldap=false
+davmail.imapAlwaysApproxMsgSize=false
+davmail.ssl.nosecurecaldav=false
+davmail.showStartupBanner=false
+log4j.logger.httpclient=WARN
+log4j.logger.org.apache.http.wire=WARN
+davmail.disableGuiNotifications=false
+davmail.allowRemote=false
+davmail.disableUpdateCheck=false
+log4j.logger.org.apache.http=WARN
+davmail.enableKeepAlive=true
+davmail.carddavReadPhoto=true
+davmail.keepDelay=30
+#+end_src
+

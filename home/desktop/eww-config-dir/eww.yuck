@@ -42,8 +42,7 @@
 		:class "zona"
 		(volume)
 		(brillo)
-		(bat)
-		(wifi)))
+		(bat)))
 
 (defwidget bar_0 []
   (box :orientation "h"
@@ -87,7 +86,10 @@
 	   (eventbox :onhover "~/.config/eww/scripts/reveal.sh vol_reveal --on &"
 		     :onhoverlost "~/.config/eww/scripts/reveal.sh vol_reveal &"
 		     (box :space-evenly "false" :orientation "h" :spacing "3" 
-			  (button :onclick "scripts/pop audio" :class "widget_basico" volume_icon)
+			  (button :onclick "scripts/pop audio"
+			  	  :class "widget_basico" 
+				  :style "background-color: transparent;"
+				  volume_icon)
 			  (revealer :transition "slideleft"
 				    :reveal vol_reveal
 				    :duration "350ms"
@@ -108,7 +110,10 @@
 (defwidget brillo []
 	   (eventbox :onhover "~/.config/eww/scripts/reveal.sh bri_reveal --on &"
 		     :onhoverlost "~/.config/eww/scripts/reveal.sh bri_reveal &"
-		     (box :space-evenly "false" :orientation "h" :spacing "3" 
+		     (box :space-evenly "false"
+		     	  :orientation "h" 
+			  :spacing "3" 
+			  :style "margin-right: 5px;"
 			  (label :class "widget_basico" :text "")
 			  (revealer :transition "slideleft"
 				    :reveal bri_reveal
@@ -164,6 +169,7 @@
 		     :onhoverlost "~/.config/eww/scripts/reveal.sh bat_rev &"
 		     (box :vexpand "false" 
 		     	  :hexpand "false" 
+ 			  :style "margin-right: 5px;"
 			  :space-evenly "false"
 			  (label :class {battery > 15 ? "module-bat" : "module-bat-crit"}
 				 :text battery_icon)
@@ -267,34 +273,6 @@
 			       :width "190px" 
 			       :height "60px")
 	   (cal))
-
-;; ==============
-;; Módulo de wifi
-;; ==============
-
-(defpoll COL_WLAN :interval "1m" "~/.config/eww/scripts/wifi --COL")
-(defpoll ESSID_WLAN :interval "1m" "~/.config/eww/scripts/wifi --ESSID")
-(defpoll WLAN_ICON :interval "1m" "~/.config/eww/scripts/wifi --ICON")
-(defpoll WLAN_SIGNAL :interval "1m" "~/.config/eww/scripts/wifi --SIGNAL")
-(defvar wifi_rev false)
-
-(defwidget wifi [] 
-	   (eventbox :onhover "~/.config/eww/scripts/reveal.sh wifi_rev --on &"  
-		     :onhoverlost "~/.config/eww/scripts/reveal.sh wifi_rev &"  
-		     (box :vexpand "false" :hexpand "false" :space-evenly "false"
-		     	  :style "margin-right: 5;"
-			  (button :class "widget_basico"
-				  :onclick "networkmanager_dmenu"
-				  :wrap "false"
-				  :limit-width 12 
-				  :style "color: ${COL_WLAN};" 
-				  WLAN_ICON)
-			  (revealer :transition "slideright"
-				    :reveal wifi_rev
-				    :duration "350ms"
-				    (label    :class "module_essid"
-					      :text "${ESSID_WLAN} (${WLAN_SIGNAL}%)"
-					      :orientation "h")))))
 
 ;; ====================
 ;; Definición de barras

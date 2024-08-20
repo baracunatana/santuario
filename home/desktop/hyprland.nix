@@ -25,11 +25,17 @@
     network-manager-applet.enable = true;
   };
  
- 
-  # Para íconos de gtk
-  gtk.iconTheme = {
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
+  # Configuración de tema GTK 
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Nordic";
+      package = pkgs.nordic;
+    };
+    iconTheme = {
+      package = pkgs.zafiro-icons;
+      name = "Zafiro-icons-Dark";
+    };
   };
 
   programs = {

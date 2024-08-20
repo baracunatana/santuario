@@ -47,9 +47,8 @@
 
       aliases = {
         q = "close";
-        pensaSis9 = "open -t https://campusvirtuallms.javeriana.edu.co/d2l/home/200673";
-        pensaSis2 = "open -t https://campusvirtuallms.javeriana.edu.co/d2l/home/200674";
-        sisInfo = "open -t https://campusvirtuallms.javeriana.edu.co/d2l/home/201208";
+        pensaSis9 = "open -t https://campusvirtuallms.javeriana.edu.co/d2l/home/227750";
+        pensaSis2 = "open -t https://campusvirtuallms.javeriana.edu.co/d2l/home/227751";
       };
       
       searchEngines = {

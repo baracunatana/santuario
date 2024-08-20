@@ -41,6 +41,7 @@
           patterns = [ "INBOX" "*" ];
         };
       };
+      #** Egpti
       puj-egpti = {
         address = "egpti@javeriana.edu.co";
         userName = "egpti@javeriana.edu.co";
@@ -65,6 +66,8 @@
           patterns = [ "INBOX" "*" ];
         };
       };
+
+      #** AES
       puj-aes = {
         address = "aes@javeriana.edu.co";
         userName = "aes@javeriana.edu.co";

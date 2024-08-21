@@ -46,11 +46,11 @@
         inherit (tpkgs)
           scheme-medium
           # Paquetes adicionales
-	        currvita
-	        doi
-	        multibib
-	        multirow
-	        preview
+ 	  currvita
+ 	  doi
+ 	  multibib
+ 	  multirow
+ 	  preview
           adjustbox
           amsfonts
           biber
@@ -63,8 +63,8 @@
           sectsty
           titlesec
           orcidlink
-	        preprint      #Para authblk
-	        pracjourn
+ 	  preprint      #Para authblk
+ 	  pracjourn
           wrapfig;
       };
     };

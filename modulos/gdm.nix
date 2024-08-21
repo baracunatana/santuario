@@ -1,14 +1,28 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}:
+
+let
+  monitorsXmlContent = builtins.readFile ./activos/monitors-shura.xml;
+  monitorsConfig = pkgs.writeText "gdm_monitors.xml" monitorsXmlContent;
+in
+{
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
+  services = {
+  	xserver = {
+      layout = "latam";
+      xkbVariant = "";
+      enable = true;
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
+    };
+
+    gnome.gnome-keyring.enable = true;
+  };
 
   security.pam.services.gdm.enableGnomeKeyring = true;
 
-  # Configurar teclado en X11
-  services.xserver = {
-    layout = "latam";
-    xkbVariant = "";
-  };
+  systemd.tmpfiles.rules = [
+    "L+ /run/gdm/.config/monitors.xml - - - - ${monitorsConfig}"
+  ];
 }

@@ -19,7 +19,6 @@
       desktopManager = {
         xterm.enable = false;
       };
-
     };
 
     displayManager = {
@@ -58,4 +57,15 @@
     
     # xfce.thunar # xfce4's file manager
   ];
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-hyprland
+      ];
+    };
+  };
 }

@@ -17,7 +17,8 @@
     jq                          # Para scripts de eww
     socat                       # Para scripts de eww
     wirelesstools               # Para scripts de eww
-    wl-clipboard                # Se requiere para org-download
+    wl-clipboard                # Para pantallazos en wayland
+    pkgs-unstable.grimblast
   ];
 
   services = {

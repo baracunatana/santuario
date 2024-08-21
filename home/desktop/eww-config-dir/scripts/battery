@@ -1,8 +1,12 @@
 #!/bin/sh
 
 battery() {
-    BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
-    cat /sys/class/power_supply/${BAT}/capacity
+    if [[ -n "$(ls -A /sys/class/power_supply/)" ]]; then
+	BAT=`ls /sys/class/power_supply | grep BAT | head -n 1`
+	cat /sys/class/power_supply/${BAT}/capacity
+    else
+	echo ""
+    fi
 }
 
 battery_stat() {
@@ -14,7 +18,9 @@ battery_icon() {
     battery_capacity=$(battery)
     battery_status=$(battery_stat)
     battery_icon=""
-    if [[ $battery_capacity -ge 98 ]]; then
+    if [[ -z "$(ls -A /sys/class/power_supply/)" ]]; then
+	baterry_icon=""
+    elif [[ $battery_capacity -ge 98 ]]; then
 	if [ "$battery_status" == "Charging" ]; then
             battery_icon="󰂅"  
 	else

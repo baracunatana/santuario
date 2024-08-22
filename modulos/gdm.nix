@@ -1,7 +1,7 @@
-{pkgs, lib, ...}:
+{pkgs, lib, config, ...}:
 
 let
-  monitorsXmlContent = builtins.readFile ./activos/monitors-shura.xml;
+  monitorsXmlContent = builtins.readFile ./activos/monitors-${config.networking.hostName}.xml;
   monitorsConfig = pkgs.writeText "gdm_monitors.xml" monitorsXmlContent;
 in
 {
@@ -21,6 +21,8 @@ in
   };
 
   security.pam.services.gdm.enableGnomeKeyring = true;
+
+  home-manager.backupFileExtension = "bck";
 
   systemd.tmpfiles.rules = [
     "L+ /run/gdm/.config/monitors.xml - - - - ${monitorsConfig}"

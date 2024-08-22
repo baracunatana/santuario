@@ -23,11 +23,6 @@
 
     displayManager = {
       defaultSession = "hyprland";
-      # # lightdm.enable = false;
-      # gdm = {
-      #   enable = true;
-      #   wayland = true;
-      # };
     };
   };
 

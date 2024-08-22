@@ -8,8 +8,10 @@ in
   # Enable the X11 windowing system.
   services = {
   	xserver = {
-      layout = "latam";
-      xkbVariant = "";
+      xkb = {
+        layout = "latam";
+        variant = "";
+      };
       enable = true;
       displayManager.gdm = {
         enable = true;

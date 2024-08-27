@@ -10,6 +10,7 @@
         debugpy
         ipython
         pandas
+        matplotlib
       ]))
     pyright #LSP para python usado desde Emacs
   ];

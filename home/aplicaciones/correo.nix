@@ -6,7 +6,7 @@
 
 {
   home.packages = with pkgs; [
-    javaPackages.openjfx22
+    javaPackages.openjfx23
     davmail
     pkgs-legacy.mu
   ];

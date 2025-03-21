@@ -23,7 +23,7 @@
     zoom-us
     zotero
     pkgs-unstable.superfile
-    gnome.nautilus
+    nautilus
     fzf
     ueberzugpp                  # Para imagenes en yazi
     ripdrag                     # Para incluir drag-n-drop en yazi

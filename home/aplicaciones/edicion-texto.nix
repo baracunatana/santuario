@@ -23,21 +23,15 @@
   ## Configuración de aspell
   home.file.".aspell.conf".text = "data-dir /etc/profiles/per-user/juan/lib/aspell/";
 
-  services.emacs = {
-    startWithUserSession = "graphical";
-    enable = true;
-  };
+  # services.emacs = {
+  #   startWithUserSession = true;
+  #   enable = true;
+  # };
   
   programs = {
     emacs = {
       enable = true;
-      # package = with pkgs; (
-      #   (emacsPackagesFor emacs29-pgtk).emacsWithPackages (
-      #     epkgs: [ emacsPackages.mu4e ]
-      #   )
-      # );
-      package = pkgs.emacs29-pgtk;
-      # extraPackages = epkgs: [ pkgs-legacy.mu ];
+        package = pkgs.emacs-pgtk;
     };
     
     texlive = {

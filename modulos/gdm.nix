@@ -5,7 +5,6 @@ let
   monitorsConfig = pkgs.writeText "gdm_monitors.xml" monitorsXmlContent;
 in
 {
-  # Enable the X11 windowing system.
   services = {
   	xserver = {
       xkb = {

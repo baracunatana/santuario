@@ -1,21 +1,27 @@
 {pkgs, ...}: {
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeters.slick = {
+
+ services = {
+  	xserver = {
       enable = true;
-      extraConfig = ''
-        background=/etc/lightdm/jardin.jpg
-      '';
+      xkb = {
+        layout = "latam";
+        variant = "";
+      };
+      displayManager.lightdm = {
+        enable = true;
+        greeters.slick = {
+          enable = true;
+          extraConfig = ''
+                  background=/etc/lightdm/jardin.jpg
+                  '';
+        };
+      };
     };
+
+    gnome.gnome-keyring.enable = true;
   };
 
+  security.pam.services.gdm.enableGnomeKeyring = true;
+  
   environment.etc."lightdm/jardin.jpg".source = ../wallpapers/jardin.jpg;
-
-  # Configurar teclado en X11
-  services.xserver = {
-    layout = "latam";
-    xkbVariant = "";
-  };
 }

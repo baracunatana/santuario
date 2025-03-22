@@ -7,6 +7,8 @@
 {
   home.packages = with pkgs; [
     hyprpaper
+    hyprcursor
+    rose-pine-hyprcursor
     waylock
     blueman                     # Gestor de conexiones bluetooth
     networkmanagerapplet	# Gestor de red en tray
@@ -18,7 +20,6 @@
     socat                       # Para scripts de eww
     wirelesstools               # Para scripts de eww
     wl-clipboard                # Para pantallazos en wayland
-    pkgs-unstable.grimblast
   ];
 
   services = {

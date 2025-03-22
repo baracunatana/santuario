@@ -13,7 +13,7 @@
   programs = {
     qutebrowser = {
       enable = true;
-      package = pkgs-unstable.qutebrowser;
+      package = pkgs.qutebrowser;
       loadAutoconfig = false;
       
       settings = {

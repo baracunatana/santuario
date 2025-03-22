@@ -8,8 +8,10 @@
   home.packages = with pkgs; [
     javaPackages.openjfx23
     davmail
-    pkgs-legacy.mu
+    mu
   ];
+
+  home.file.".config/emacs/site-lisp/mu4e".source = "${pkgs.mu}/share/emacs/site-lisp/mu4e";
 
   programs.mbsync.enable = true;
 

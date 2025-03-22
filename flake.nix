@@ -39,6 +39,7 @@
         modules = [
           ./modulos/comun.nix
           ./modulos/hyprland.nix
+          #./modulos/gnome.nix
           ./modulos/fuentes.nix
           #./modulos/sddm.nix
           ./modulos/gdm.nix
@@ -74,9 +75,11 @@
         modules = [
           ./modulos/comun.nix
           ./modulos/hyprland.nix
+          #./modulos/gnome.nix
           ./modulos/fuentes.nix
           #./modulos/sddm.nix
-          ./modulos/gdm.nix
+          #./modulos/gdm.nix
+          ./modulos/lightdm.nix
           ./modulos/pipewire.nix
           ./maquinas/shion/configuration.nix
           ./maquinas/shion/hardware-configuration.nix

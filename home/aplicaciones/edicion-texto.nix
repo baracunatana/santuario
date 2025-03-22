@@ -17,7 +17,6 @@
     pkgs.aspellDicts.es
     pkgs.xclip                       # Lo necesita org-download
     pkgs.hugo
-    pkgs-legacy.mu
   ];
 
   ## Configuración de aspell
@@ -31,7 +30,8 @@
   programs = {
     emacs = {
       enable = true;
-        package = pkgs.emacs-pgtk;
+      package = pkgs.emacs-pgtk;
+      extraPackages = epkgs: [epkgs.mu4e];
     };
     
     texlive = {

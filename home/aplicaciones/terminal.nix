@@ -11,7 +11,7 @@
     alacritty = {
       enable = true;
       settings = {
-	      import = ["~/.config/alacritty/themes/themes/nord.toml"];
+	      general.import = ["~/.config/alacritty/themes/themes/nord.toml"];
         font.normal = {
 	        family = "Inconsolata LGC";
 	      };

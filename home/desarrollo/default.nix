@@ -11,6 +11,9 @@
         ipython
         pandas
         matplotlib
+        tabulate
+        streamlit
+        shiny
       ]))
     pyright #LSP para python usado desde Emacs
   ];

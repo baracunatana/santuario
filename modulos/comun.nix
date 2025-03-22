@@ -51,6 +51,8 @@
   # Habilitar flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.git.lfs.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     wget

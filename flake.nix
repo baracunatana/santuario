@@ -9,7 +9,7 @@
     nixpkgs-legacy.url = "github:NixOS/nixpkgs/nixos-24.05";
 
     # Repositorio inestable
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # home-manager, used for managing user configuration
     home-manager = {

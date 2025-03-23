@@ -9,10 +9,7 @@
     hyprpaper
     hyprcursor
     rose-pine-hyprcursor
-    waylock
-    blueman                     # Gestor de conexiones bluetooth
-    networkmanagerapplet	# Gestor de red en tray
-    gtklock
+    networkmanagerapplet	      # Gestor de red en tray
     pkgs-unstable.grimblast
     alsa-utils                  # Para control de volumen
     brightnessctl               # Para control de brillo en pantalla
@@ -23,6 +20,7 @@
   ];
 
   services = {
+    blueman-applet.enable = true;
     gnome-keyring.enable = true;
     network-manager-applet.enable = true;
   };

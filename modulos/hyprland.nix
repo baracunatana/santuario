@@ -1,4 +1,4 @@
-{pkgs, hyprland, ...}: {
+{pkgs, pkgs-unstable, hyprland, ...}: {
 
   programs.hyprland = {
       enable = true;
@@ -6,16 +6,13 @@
   };
 
   # Esto es necesario para que el bloqueo de sesión funcione correctamente
-  security.pam.services.swaylock = { };
-  security.pam.services.waylock = { };
-  security.pam.services.gtklock = { };
+  security.pam.services.hyprlock = {};
 
   services = {
     # gvfs.enable = true; # Mount, trash, and other functionalities
     # tumbler.enable = true; # Thumbnail support for images
     xserver = {
       enable = true;
-
       desktopManager = {
         xterm.enable = false;
       };
@@ -26,13 +23,11 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    xdg-desktop-portal-hyprland # Portal xdg para hyprland. Mejora tiempo de arranque de apps
-    swaylock                    # Bloqueo de sesión 
-    # swayidle # the idle timeout
+  hardware.graphics.enable = true;
+
+  # environment.systemPackages = with pkgs; [
+  #   pkgs-unstable.xdg-desktop-portal-hyprland # Portal xdg para hyprland. Mejora tiempo de arranque de apps
     # wlogout # logout menu
-    # wl-clipboard # copying and pasting
-    # hyprpicker  # color picker
     
     # wf-recorder # creen recording
     # grim # taking screenshots
@@ -44,14 +39,12 @@
     # yad # a fork of zenity, for creating dialogs
     
     # audio
-    # alsa-utils                 # provides amixer/alsamixer/...
     # mpd                        # for playing system sounds
     # mpc-cli                    # command-line mpd client
     # ncmpcpp                    # a mpd client with a UI
-    # networkmanagerapplet       # provide GUI app: nm-connection-editor
     
     # xfce.thunar # xfce4's file manager
-  ];
+  # ];
 
   xdg = {
     portal = {

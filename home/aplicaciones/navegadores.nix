@@ -66,7 +66,7 @@
         # NixOS
         np = "https://search.nixos.org/packages?query={}";
         no = "https://search.nixos.org/options?query={}";
-	      nh = "https://mipmip.github.io/home-manager-option-search/?query={}";
+	      nh = "https://home-manager-options.extranix.com/?query={}";
         # Redes sociales
         re = "https://www.reddit.com/r/{}"; 
         yt = "https://www.youtube.com/results?search_query={}";

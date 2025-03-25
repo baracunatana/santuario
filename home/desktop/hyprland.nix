@@ -24,7 +24,7 @@
     gnome-keyring.enable = true;
     network-manager-applet.enable = true;
   };
- 
+  
   # Configuración de tema GTK 
   gtk = {
     enable = true;
@@ -66,7 +66,111 @@
     };
     waybar = {
       enable = true;
+      settings = {
+        mainBar = {
+          modules-left = [ "hyprland/workspaces" "mpris" ];
+          modules-center = [ "idle_inhibitor" "hyprland/window" ];
+          modules-right = [ "pulseaudio" "battery" "network" "clock" "tray" "custom/power" ];
+          mpris = {
+            format = "DEFAULT: {player_icon} {dynamic}";
+            format-paused = "DEFAULT: {status_icon} <i>{dynamic}</i>";
+            player-icons = {
+              default = "▶";
+              mpv = "🎵";
+            };
+            status-icons = {
+              paused = "⏸";
+            };
+          };
+          "hyprland/workspaces" = {
+            format = "{icon}";
+            format-icons = {
+              active = "";
+              default = "";
+            };
+          };
+          "hyprland/window" = {
+            format = "{class} # {title}  ";
+            max-length = 35;
+            rewrite = {
+              "emacs # (.*) - GNU Emacs (.*)" = "  > $1  ";
+              "Alacritty # (.*): (.*)" = "  > $2  ";
+              "Alacritty # nmtui" = "  > nmtui  ";
+              "org.qutebrowser.qutebrowser # (.*) - qute(.*)" = "  > $1  ";
+            };
+            separate-outputs = true;
+          };
+          idle_inhibitor = {
+            format = "{icon}";
+            format-icons = {
+              activated = "";
+              deactivated = "";
+            };
+          };
+          battery = {
+            states = {
+              warning = 30;
+              critical = 15;
+            };
+            format = "{icon}  {capacity}%";
+            format-full = "{icon}  {capacity}%";
+            format-charging = "{icon}  {capacity}%";
+            format-plugged = "  {capacity}%";
+            format-alt = "{time} {icon}";
+            format-icons = [ "󰂎" "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
+            format-charging-icons = [ "󰢜" "󰂆" "󰂈" "󰂉" "󰂊" "󰂅" ];
+            tooltip = true;
+          };
+          tray = {
+            icon-size = 13;
+            spacing = 4;
+          };
+          clock = {
+            tooltip-format = "<tt><small>{calendar}</small></tt>";
+            format-alt = "{:%Y-%m-%d}";
+            calendar = {
+              mode = "year";
+              mode-mon-col = 3;
+              on-scroll = 1;
+              format = {
+                months = "<span color='#A3BE8C'><b>{}</b></span>";
+                days = "<span color='#88C0D0'><b>{}</b></span>";
+                weekdays = "<span color='#EBCB8B'><b>{}</b></span>";
+                today = "<span color='#BF616A'><b><u>{}</u></b></span>";
+              };
+            };
+          };
+          pulseaudio = {
+            format = "{icon} {volume}%";
+            format-bluetooth = "  {volume}%";
+            format-bluetooth-muted = "󰂲";
+            format-muted = "󰸈";
+            format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              default = [ "" "" "" ];
+            };
+            on-click = "pavucontrol";
+          };
+          "custom/power" = {
+            format = " ";
+            on-click = "wlogout";
+          };
+          network = {
+            format-wifi = " {icon}  {essid} ";
+            format-ethernet = " {ifname} ";
+            format-disconnected = "󰤭";
+            max-length = 20;
+            on-click = "alacritty --title 'nmtui' -e 'nmtui'";
+            format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
+          };
+        };
+      };
+      # El estilo css se define en archivos independientes que se
+      # especifican más abajo en home.file..config
     };
+
     wofi = {
       enable = true;
       settings = {
@@ -95,5 +199,7 @@
       source = ./hyprland-config;
       recursive = true;
     };
+    ".config/waybar/style.css".source = ./waybar/style.css;
+    ".config/waybar/colors.css".source = ./waybar/colors.css;
   };
 }

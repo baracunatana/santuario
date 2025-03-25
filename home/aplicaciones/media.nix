@@ -8,25 +8,27 @@
   home.packages = with pkgs; [
     pinta
     spotify
+    playerctl
     pkgs-unstable.spotifyd
   ];
    
   home.file.".config/spotifyd/spotifyd.conf".text =''
     [global]
-    #username = "juanerasmoe@gmail.com"
     devicename = "shion"
-    #password_cmd = "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/spotifyd.gpg"
-    #bitrate = 320
+    bitrate = 320
     volume_normalisation = true
     device_type = "speaker"
     '';
 
-  services = { 
+  services = {
+    # Permite controlar reproductores de multimedia (como spotifyd) con MPRIS
+    playerctld.enable = true;
     spotifyd = {
       enable = true;
       package = pkgs-unstable.spotifyd;
       settings = {
         global = {
+          use_mpris = true;
           device_name = "nix";
           bitrate = 320;
           volume_normalisation = true;
@@ -34,6 +36,7 @@
       };
     };
   };
+  
   programs = {
     mpv = {
       enable = true;

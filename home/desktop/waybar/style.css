@@ -1,6 +1,29 @@
-/* Importar colores de Nord */
-@import url("colors.css");
+/* Esquema de colores de Nord */
+@define-color black #000000;
+@define-color --nord0 #2E3440;
+@define-color --nord1 #3B4252;
+@define-color --nord2 #434C5E;
+@define-color --nord3 #4C566A;
 
+/* Snow Storm */
+@define-color --nord4 #D8DEE9;
+@define-color --nord5 #E5E9F0;
+@define-color --nord6 #ECEFF4;
+
+/* Frost */
+@define-color --nord7 #8FBCBB;
+@define-color --nord8 #88C0D0;
+@define-color --nord9 #81A1C1;
+@define-color --nord10 #5E81AC;
+
+/* Aurora */
+@define-color --nord11 #BF616A;
+@define-color --nord12 #D08770;
+@define-color --nord13 #EBCB8B;
+@define-color --nord14 #A3BE8C;
+@define-color --nord15 #B48EAD;
+
+/* Definiciones globales */
 * {
     border: none;
     font-family: Font Awesome, Roboto, Arial, sans-serif;
@@ -76,10 +99,10 @@ window#waybar {
 }
 
 #custom-power {
-    background-color: rgba(0,119,179,0.6);
+    background-color: @--nord10;
     border-radius: 100px;
     margin: 5px 5px;
-    padding: 1px 1px 1px 6px;
+    padding: 1px 1px 1px 4px;
 }
 
 #window {
@@ -93,17 +116,17 @@ window#waybar {
 
 /*-----Indicators----*/
 #idle_inhibitor.activated {
-    color: #2dcc36;
+    color: @--nord14;
 }
 #battery.charging {
-    color: #2dcc36;
+    color: @--nord14;
 }
 #battery.warning:not(.charging) {
-	color: #e6e600;
+    color: @--nord13;
 }
-#battery.critical:not(.charging) {
-    color: #cc3436;
-}
+/* #battery.critical:not(.charging) { */
+/*     color: @--nord11; */
+/* } */
 #temperature.critical {
-    color: #cc3436;
+    color: @--nord11;
 }

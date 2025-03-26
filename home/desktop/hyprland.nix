@@ -200,6 +200,5 @@
       recursive = true;
     };
     ".config/waybar/style.css".source = ./waybar/style.css;
-    ".config/waybar/colors.css".source = ./waybar/colors.css;
   };
 }

@@ -112,13 +112,12 @@
               warning = 30;
               critical = 15;
             };
-            format = "{icon}  {capacity}%";
-            format-full = "{icon}  {capacity}%";
-            format-charging = "{icon}  {capacity}%";
-            format-plugged = "  {capacity}%";
-            format-alt = "{time} {icon}";
-            format-icons = [ "󰂎" "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
-            format-charging-icons = [ "󰢜" "󰂆" "󰂈" "󰂉" "󰂊" "󰂅" ];
+            format = "{icon}";
+            format-icons = {
+              default = [ "󰂎" "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
+              charging = [ "󰢜" "󰂆" "󰂈" "󰂉" "󰂊" "󰂅" ];
+              plugged = [ "" ];
+            };
             tooltip = true;
           };
           tray = {
@@ -141,8 +140,8 @@
             };
           };
           pulseaudio = {
-            format = "{icon} {volume}%";
-            format-bluetooth = "  {volume}%";
+            format = "{icon} ";
+            format-bluetooth = " ";
             format-bluetooth-muted = "󰂲";
             format-muted = "󰸈";
             format-icons = {
@@ -158,9 +157,11 @@
             on-click = "wlogout";
           };
           network = {
-            format-wifi = " {icon}  {essid} ";
-            format-ethernet = " {ifname} ";
-            format-disconnected = "󰤭";
+            format-wifi = "{icon} ";
+            format-ethernet = "  ";
+            format-disconnected = "󰤭 ";
+            tooltip-format-wifi = "{icon}  {essid} ({signalStrength}%)";
+            tooltip-format-ethernet = "{icon} {ifname}";
             max-length = 20;
             on-click = "alacritty --title 'nmtui' -e 'nmtui'";
             format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];

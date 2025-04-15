@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-legacy, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-legacy, pkgs-unstable, nur-pkgs, ... }:
 
 {
   # Enable networking
@@ -96,8 +96,7 @@
   # Parámetros para home-manager
   home-manager.extraSpecialArgs = {
     # Capacidad de instalación de repo instable
-    inherit pkgs-unstable;
-    inherit pkgs-legacy;
+    inherit pkgs-unstable pkgs-legacy nur-pkgs; 
   };
   
   # Automount de usb

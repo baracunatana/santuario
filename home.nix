@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nur-pkgs, ... }:
 
 {
   # Let home Manager install and manage itself.

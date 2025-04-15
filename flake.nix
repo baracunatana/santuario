@@ -16,9 +16,15 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Nix User Repository (NUR). Lo uso para extensiones de firefox
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs@{self, nixpkgs, nixpkgs-legacy, nixpkgs-unstable, home-manager, ... }: {
+  outputs = inputs@{self, nixpkgs, nixpkgs-legacy, nixpkgs-unstable, home-manager, nur, ... }: {
     nixosConfigurations = {
       "shura" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -34,12 +40,13 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
+          nur-pkgs = import nur;
         };
 
         modules = [
           ./modulos/comun.nix
           ./modulos/hyprland.nix
-          #./modulos/gnome.nix
+          ./modulos/gnome.nix
           ./modulos/fuentes.nix
           #./modulos/sddm.nix
           ./modulos/gdm.nix
@@ -70,12 +77,16 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
+          nur-pkgs = import nur {
+            nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          };
 	      };
 
         modules = [
           ./modulos/comun.nix
           ./modulos/hyprland.nix
-          #./modulos/gnome.nix
+          ./modulos/gnome.nix
           ./modulos/fuentes.nix
           #./modulos/sddm.nix
           #./modulos/gdm.nix

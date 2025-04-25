@@ -20,11 +20,30 @@
   ];
 
   services = {
+    swaync.enable = true;
     blueman-applet.enable = true;
     gnome-keyring.enable = true;
     network-manager-applet.enable = true;
   };
-  
+
+  home.sessionVariables = {
+    TERMINAL = "alacritty";
+  };
+
+  xdg.configFile."mimeapps.list".text = ''
+    [Default Applications]
+    x-scheme-handler/terminal=alacritty.desktop
+  '';
+
+  xdg.desktopEntries.alacritty = {
+    name = "Alacritty";
+    genericName = "Terminal Emulator";
+    exec = "alacritty -e %c";
+    terminal = false;
+    categories = [ "System" "TerminalEmulator" ];
+    mimeType = [ "x-scheme-handler/terminal" ];
+  };
+
   # Configuración de tema GTK 
   gtk = {
     enable = true;
@@ -70,7 +89,7 @@
         mainBar = {
           modules-left = [ "hyprland/workspaces" "mpris" ];
           modules-center = [ "idle_inhibitor" "hyprland/window" ];
-          modules-right = [ "pulseaudio" "battery" "network" "clock" "tray" "custom/power" ];
+          modules-right = [ "pulseaudio" "battery" "network" "clock" "tray" "custom/notification" "custom/power" ];
           mpris = {
             format = "DEFAULT: {player_icon} {dynamic}";
             format-paused = "DEFAULT: {status_icon} <i>{dynamic}</i>";
@@ -81,6 +100,25 @@
             status-icons = {
               paused = "⏸";
             };
+          };
+          "custom/notification" = {
+            format = "{icon}";
+            format-icons = {
+              notification = "<span foreground='red'><sup></sup></span>";
+              none = "";
+              dnd-notification = "<span foreground='red'><sup></sup></span>";
+              dnd-none = "";
+              inhibited-notification = "<span foreground='red'><sup></sup></span>";
+              inhibited-none = "";
+              dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+              dnd-inhibited-none = ";";
+            };
+            return-type = "json";
+            exec-if = "which swaync-client";
+            exec = "swaync-client -swb";
+            on-click = "swaync-client -t -sw";
+            on-click-right = "swaync-client -d -sw";
+            escape = true;
           };
           "hyprland/workspaces" = {
             format = "{icon}";

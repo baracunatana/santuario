@@ -79,8 +79,9 @@
       package = pkgs.firefox;
       profiles.default = {
         settings = {
-          "browser.startup.homepage" = "https://nixos.org";
           "extensions.autoDisableScopes" = 0;
+          "browser.startup.page" = 3; # Restaura sessión anterior al abrir
+          "browser.download.useDownloadDir" = false; # Pregunta por carpeta para descargas
         };
         search = {
           engines = {

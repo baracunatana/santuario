@@ -40,9 +40,12 @@
             system = "x86_64-linux";
             config.allowUnfree = true;
           };
-          nur-pkgs = import nur;
+          nur-pkgs = import nur {
+            nurpkgs = nixpkgs.legacyPackages.x86_64-linux;
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          };
         };
-
+        
         modules = [
           ./modulos/comun.nix
           ./modulos/hyprland.nix

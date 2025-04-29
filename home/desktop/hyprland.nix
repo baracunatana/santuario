@@ -136,6 +136,8 @@
               "Alacritty # (.*): (.*)" = "  > $2  ";
               "Alacritty # nmtui" = "  > nmtui  ";
               "org.qutebrowser.qutebrowser # (.*) - qute(.*)" = "  > $1  ";
+              "firefox # (.*)" = "  > $1  ";
+              "libreoffice-calc # (.*) — Libre(.*)" = "LO Calc > $1  ";
             };
             separate-outputs = true;
           };

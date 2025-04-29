@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     hyprpaper
     hyprcursor
+    libnotify                   # Para envío de notificaciones a swaync
     rose-pine-hyprcursor
     networkmanagerapplet	      # Gestor de red en tray
     pkgs-unstable.grimblast

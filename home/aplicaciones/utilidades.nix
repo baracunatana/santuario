@@ -11,7 +11,9 @@
     bottom                      # Gestor de procesos
     jabref
     keepassxc
+    linssid            		      # Para mejorar conectividad de redes 5ghz
     neofetch
+    iw                          # Para mejorar la búsqueda de redes 5ghz
     pavucontrol                 # Para control de volumen
     pdftk
     ripgrep

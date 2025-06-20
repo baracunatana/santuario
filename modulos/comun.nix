@@ -62,6 +62,7 @@
     git
     nano
     waydroid
+    jmtpfs
   ];
 
   virtualisation.waydroid.enable=true;
@@ -103,6 +104,9 @@
   services.udev.extraRules = ''
      ACTION=="add", SUBSYSTEMS=="usb", SUBSYSTEM=="block", ENV{ID_FS_USAGE}=="filesystem", RUN{program}+="${pkgs.systemd}/bin/systemd-mount --no-block --automount=yes --collect $devnode /media"       
   '';
+
+  # Para reconocer teléfonos conectados por USB como discos externos
+  services.gvfs.enable = true;
 
   # Paquetes inseguros
   nixpkgs.config.permittedInsecurePackages = [

@@ -8,6 +8,7 @@
     (python3.withPackages (ps:
       with ps; [
         debugpy
+        django
         ipython
         pandas
         matplotlib
@@ -15,9 +16,7 @@
         streamlit
         shiny
       ]))
-    pyright #LSP para python usado desde Emacs
+    pyright
+    basedpyright #LSP para python usado desde Emacs
   ];
-  
-  programs = {
-  };
 }

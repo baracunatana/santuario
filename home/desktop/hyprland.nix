@@ -11,7 +11,7 @@
     libnotify                   # Para envío de notificaciones a swaync
     rose-pine-hyprcursor
     networkmanagerapplet	      # Gestor de red en tray
-    pkgs-unstable.grimblast
+    grimblast
     alsa-utils                  # Para control de volumen
     brightnessctl               # Para control de brillo en pantalla
     jq                          # Para scripts de eww

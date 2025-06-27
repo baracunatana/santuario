@@ -1,7 +1,8 @@
 {pkgs, ...}: {
 
   fonts.packages = with pkgs; [ 
-    nerdfonts
+    nerd-fonts.symbols-only
+    nerd-fonts.inconsolata-lgc
     inconsolata-lgc
     eb-garamond
     vistafonts

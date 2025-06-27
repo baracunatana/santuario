@@ -9,7 +9,7 @@
     pinta
     spotify
     playerctl
-    pkgs-unstable.spotifyd
+    spotifyd
   ];
    
   home.file.".config/spotifyd/spotifyd.conf".text =''
@@ -25,7 +25,7 @@
     playerctld.enable = true;
     spotifyd = {
       enable = true;
-      package = pkgs-unstable.spotifyd;
+      package = pkgs.spotifyd;
       settings = {
         global = {
           use_mpris = true;

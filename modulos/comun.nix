@@ -61,11 +61,9 @@
     curl
     git
     nano
-    waydroid
     jmtpfs
+    ripgrep
   ];
-
-  virtualisation.waydroid.enable=true;
 
   programs.git.config = {
     user.name = "Juan E. Gómez-Morantes";

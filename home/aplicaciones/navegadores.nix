@@ -141,7 +141,7 @@
             };
           };
         };
-        extensions = with nur-pkgs.repos.rycee.firefox-addons; [
+        extensions.packages = with nur-pkgs.repos.rycee.firefox-addons; [
           privacy-badger
           zotero-connector
           ublock-origin
